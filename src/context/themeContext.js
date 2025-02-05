@@ -14,11 +14,16 @@ export const ThemeProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        if (theme) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+        (
+            theme ?
+                document.querySelector('html').classList.add('dark') :
+                document.querySelector('html').classList.remove('dark')
+        )
+        // if (theme) {
+        //     document.querySelector('html').classList.add('dark');
+        // } else {
+        //     document.querySelector('html').classList.remove('dark');
+        // }
     }, [theme]);
 
     return (
